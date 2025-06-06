@@ -169,7 +169,7 @@ import constant from './const.vue'
 
 const selectedTeachers = ref([]);
 
-const academies = [
+const academies = ref([
     {
         id: 'chizi',
         name: 'ChiZi',
@@ -188,7 +188,14 @@ const academies = [
         color: '#e5f0ff',
         textcolor: '#3E83A9',
         backcolor: '#B0D4E5',
-        teachers: []
+        teachers: [
+            // {
+            //     "name": "Teacher1",
+            //     "description": "Teacher1 description",
+            //     "photo": "/teacher1.jpg",
+            //     "id": "teacher1"
+            // }
+        ]
     },
     {
         id: 'fupu',
@@ -210,17 +217,18 @@ const academies = [
         backcolor: '#C4C4C4',
         teachers: []
     }
-];
+]);
 
 function fetchTeachers() {
     axios.get(constant.backendurl+'/teachers')
         .then(response => {
             const teachers = response.data;
             console.log('Fetched teachers:', teachers);
-            academies.forEach(academy => {
-                academy.teachers.push(teachers.filter(teacher => teacher.house == academy.id));
+            academies.value.forEach(academy => {
+                academy.teachers.push(...teachers.filter(teacher => teacher.house == academy.id));
             });
             console.log(academies);
+            // forceUpdate();
         })
         .catch(error => {
             console.error('Error fetching teachers:', error);
