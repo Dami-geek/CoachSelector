@@ -114,7 +114,7 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: #e44c34;
+    background-color: rgb(229, 41, 12);
     color: white;
     display: flex;
     justify-content: center;
@@ -128,7 +128,7 @@
 
 .submit-button {
     position: fixed;
-    background-color: #585858;
+    background-color: var(--button-disabled-color);
     color: white;
     border-radius: 0.5rem;
     padding: 0.75rem 1.5rem;
@@ -140,7 +140,10 @@
     right: 60px;
 }
 .submit-button.active {
-    background-color: #f84a33;
+    background-color: var(--primary-color);
+}
+.submit-button.active:hover {
+    background-color: var(--primary-hover-color);
 }
 
 @keyframes fade-in {
@@ -256,6 +259,14 @@ function selectCoach(id) {
             return;
         }
         selectedTeachers.value.push(id);
+    }
+}
+
+const emit = defineEmits(['submit']);
+
+function submit() {
+    if (selectedTeachers.value.length === 3) {
+        emit('submit', selectedTeachers.value);
     }
 }
 

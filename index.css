@@ -1,3 +1,14 @@
 body{
     margin: 0;
+    --primary-color: #4a90e2;
+    --primary-hover-color: #357abd;
+    --background-color: #f5f7fa;
+    --navbar-color: #ffffff;
+    --danger-color: #f84a33;
+    --danger-hover-color: #e44c34;
+    --icon-color: #ffffff;
+    --stage-line-color: #ddd;
+    --stage-line-active-color: #888;
+    --text-color: #444;
+    --button-disabled-color: #585858;
 }

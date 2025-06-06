@@ -24,7 +24,7 @@ function checkCookie() {
     return promise;
 }
 
-const backendurl='http://172.20.19.25:8080/api';
+const backendurl ='http://172.16.20.241:8080/api';
 
 export default
 {
