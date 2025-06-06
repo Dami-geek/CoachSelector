@@ -1,0 +1,90 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background: #f1f1f1;
+    color: #333;
+    padding: 1rem;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .academies {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .academy {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 1rem;
+    flex: 1;
+    min-width: 250px;
+  }
+  
+  .academy .header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .academy .header img {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .academy .members {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .member {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .member img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .member p {
+    font-size: 0.85rem;
+    color: #666;
+  }
+  
+  /* Theme colors */
+  .chi-zi {
+    background: #fff8dc;
+  }
+  
+  .shang-shan {
+    background: #e5f0ff;
+  }
+  
+  .fupu {
+    background: #e2f7e5;
+  }
+  
+  .wuji {
+    background: #f2f2f2;
+  }
+  
