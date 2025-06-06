@@ -20,7 +20,7 @@
     align-items: center;
     justify-content: center;
     height: 80vh;
-    background-color: #f5f5f5;
+    /* background-color: #f5f5f5; */
 }
 
 .checkmark-container {

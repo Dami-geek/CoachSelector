@@ -186,16 +186,20 @@ const handleSubmit = (coaches) => {
     }
     
     selectedCoaches.value = coaches;
-    // axios.post(`${consts.backendurl}/select`, { 
-    //     coaches: coaches,
-    //     token: cookies.get('cs-ssid')
-    // })
-    // .then(() => {
-    currentStage.value = 2;
-    // })
-    // .catch(error => {
-    //     console.error('提交失败:', error);
-    //     alert('提交失败，请重试');
-    // });
+    axios.post(`${consts.backendurl}/select`, { 
+        coaches: coaches,
+        token: cookies.get('cs-ssid')
+    })
+    .then(res => {
+        if(res.data.status !== 'success') {
+            alert('提交失败，请重试!');
+            return;
+        }
+        currentStage.value = 2;
+    })
+    .catch(error => {
+        console.error('提交失败:', error);
+        alert('后台错误，请稍后再试!');
+    });
 };
 </script>
