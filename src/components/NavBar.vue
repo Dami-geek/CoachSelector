@@ -42,13 +42,18 @@ export default {
         title: {
             type: String,
             default: 'Title'
+        },
+        requireRole: {
+            type: String,
+            default: 'any'
         }
     },
-    setup() {
-        consts.checkCookie().then(userData => {
+    mounted() {
+        consts.checkCookie(this.requireRole).then(userData => {
             username.value = userData.username;
         }).catch(error => {
             // router.push('/');
+            alert("Error on checking cookie: "+error.message);
         });
         return { username };
     },

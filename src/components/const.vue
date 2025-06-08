@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue'
 import axios from 'axios'
 import cookies from 'vue-cookies'
 
-function checkCookie() {
+function checkCookie(requireRole = 'any') {
     const token = cookies.get('cs-ssid');
     let promise = new Promise((resolve, reject) => {
         if(token==null||token==undefined||token==''){
@@ -11,6 +11,10 @@ function checkCookie() {
         }else{
             axios.get(backendurl+'/verify/'+token).then(res => {
                 if(res.data.status == 'success'){
+                    if(res.data.role!=requireRole && requireRole!='any'){
+                        reject({ code: 403, message: 'Forbidden' });
+                        return;
+                    }
                     resolve(res.data);
                 } else {
                     cookies.remove('cs-ssid');

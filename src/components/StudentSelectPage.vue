@@ -1,5 +1,5 @@
 <template>
-    <NavBar :title="'学生用户选择'" />
+    <NavBar :title="'学生用户选择'" requireRole="student" />
     <div class="container">
         <div class="stage-list">
             <div v-for="stage in stages" :key="stage" class="stage-display">
